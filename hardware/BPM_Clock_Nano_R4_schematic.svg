@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1100" viewBox="0 0 1700 1100">
+  <defs>
+    <style>
+      .sheet { fill: #ffffff; }
+      .border { fill: none; stroke: #111111; stroke-width: 2; }
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 700; fill: #111111; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #333333; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #111111; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #222222; }
+      .tiny { font-family: Arial, Helvetica, sans-serif; font-size: 10px; fill: #222222; }
+      .pin { font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #111111; }
+      .ref { font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700; fill: #111111; }
+      .net { font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; fill: #004c99; }
+      .note { font-family: Arial, Helvetica, sans-serif; font-size: 13px; fill: #333333; }
+      .wire { fill: none; stroke: #111111; stroke-width: 2; stroke-linecap: square; }
+      .thin { fill: none; stroke: #111111; stroke-width: 1.4; stroke-linecap: square; }
+      .bus { fill: none; stroke: #004c99; stroke-width: 2; stroke-linecap: square; }
+      .symbol { fill: #fffdf5; stroke: #111111; stroke-width: 2; }
+      .header { fill: #f7fbff; stroke: #111111; stroke-width: 2; }
+      .ic { fill: #f9f9f9; stroke: #111111; stroke-width: 2; }
+      .power { fill: #fff7f7; stroke: #111111; stroke-width: 2; }
+      .jack { fill: #ffffff; stroke: #111111; stroke-width: 2; }
+    </style>
+    <g id="gnd">
+      <line class="wire" x1="0" y1="0" x2="0" y2="9"/>
+      <line class="wire" x1="-13" y1="9" x2="13" y2="9"/>
+      <line class="wire" x1="-9" y1="14" x2="9" y2="14"/>
+      <line class="wire" x1="-5" y1="19" x2="5" y2="19"/>
+    </g>
+    <g id="cap">
+      <line class="wire" x1="0" y1="0" x2="0" y2="22"/>
+      <line class="wire" x1="-15" y1="22" x2="15" y2="22"/>
+      <line class="wire" x1="-15" y1="32" x2="15" y2="32"/>
+      <line class="wire" x1="0" y1="32" x2="0" y2="54"/>
+    </g>
+    <g id="res_h">
+      <line class="wire" x1="0" y1="0" x2="18" y2="0"/>
+      <rect class="symbol" x="18" y="-9" width="58" height="18"/>
+      <line class="wire" x1="76" y1="0" x2="94" y2="0"/>
+    </g>
+    <g id="res_v">
+      <line class="wire" x1="0" y1="0" x2="0" y2="16"/>
+      <rect class="symbol" x="-9" y="16" width="18" height="58"/>
+      <line class="wire" x1="0" y1="74" x2="0" y2="92"/>
+    </g>
+  </defs>
+
+  <rect class="sheet" x="0" y="0" width="1700" height="1100"/>
+  <rect class="border" x="30" y="30" width="1640" height="1040"/>
+
+  <text class="title" x="70" y="75">BPM Clock Nano R4 Eurorack Module</text>
+  <text class="subtitle" x="70" y="100">Electrical schematic for the stable firmware package. Net labels with the same name are connected.</text>
+
+  <!-- Power input and conditioning -->
+  <rect class="power" x="70" y="140" width="300" height="190"/>
+  <text class="ref" x="90" y="168">J_PWR</text>
+  <text class="label" x="90" y="190">16-pin Eurorack power header</text>
+  <text class="pin" x="90" y="220">pins 11-12: +5V used</text>
+  <text class="pin" x="90" y="245">pins 3-8: GND used</text>
+  <text class="pin" x="90" y="270">+12V, -12V, CV bus, gate bus: NC</text>
+  <text class="tiny" x="90" y="303">Use only case +5V and GND.</text>
+
+  <line class="wire" x1="370" y1="215" x2="420" y2="215"/>
+  <use href="#res_h" x="420" y="215"/>
+  <text class="ref" x="442" y="194">R1</text>
+  <text class="small" x="441" y="239">10 ohm</text>
+  <line class="wire" x1="514" y1="215" x2="590" y2="215"/>
+  <text class="net" x="535" y="205">+5V</text>
+
+  <line class="wire" x1="370" y1="250" x2="590" y2="250"/>
+  <text class="net" x="535" y="268">GND</text>
+
+  <text class="ref" x="630" y="153">Power rail filters</text>
+  <line class="wire" x1="620" y1="180" x2="870" y2="180"/>
+  <text class="net" x="625" y="170">+5V</text>
+  <line class="wire" x1="620" y1="290" x2="870" y2="290"/>
+  <text class="net" x="625" y="312">GND</text>
+
+  <use href="#cap" x="660" y="193"/>
+  <text class="ref" x="638" y="207">C1</text>
+  <text class="small" x="635" y="266">100 uF</text>
+  <use href="#cap" x="745" y="193"/>
+  <text class="ref" x="723" y="207">C2</text>
+  <text class="small" x="724" y="266">10 uF</text>
+  <use href="#cap" x="830" y="193"/>
+  <text class="ref" x="808" y="207">C3</text>
+  <text class="small" x="803" y="266">100 nF</text>
+  <use href="#gnd" x="660" y="290"/>
+  <use href="#gnd" x="745" y="290"/>
+  <use href="#gnd" x="830" y="290"/>
+
+  <!-- OLED / encoder header -->
+  <rect class="header" x="70" y="390" width="300" height="420"/>
+  <text class="ref" x="90" y="420">H1</text>
+  <text class="label" x="90" y="443">OLED and encoder board</text>
+  <text class="small" x="90" y="466">Pin order top to bottom on board</text>
+
+  <text class="pin" x="92" y="505">1 COM</text><text class="net" x="238" y="505">GND</text>
+  <text class="pin" x="92" y="535">2 SDA</text><text class="net" x="238" y="535">SDA</text>
+  <text class="pin" x="92" y="565">3 SCL</text><text class="net" x="238" y="565">SCL</text>
+  <text class="pin" x="92" y="595">4 PSH</text><text class="net" x="238" y="595">ENC_SW</text>
+  <text class="pin" x="92" y="625">5 TRA</text><text class="net" x="238" y="625">ENC_A</text>
+  <text class="pin" x="92" y="655">6 TRB</text><text class="net" x="238" y="655">ENC_B</text>
+  <text class="pin" x="92" y="685">7 BAK</text><text class="net" x="238" y="685">NC</text>
+  <text class="pin" x="92" y="715">8 GND</text><text class="net" x="238" y="715">GND</text>
+  <text class="pin" x="92" y="745">9 VCC</text><text class="net" x="238" y="745">+5V</text>
+
+  <line class="thin" x1="224" y1="500" x2="360" y2="500"/>
+  <line class="thin" x1="224" y1="530" x2="360" y2="530"/>
+  <line class="thin" x1="224" y1="560" x2="360" y2="560"/>
+  <line class="thin" x1="224" y1="590" x2="360" y2="590"/>
+  <line class="thin" x1="224" y1="620" x2="360" y2="620"/>
+  <line class="thin" x1="224" y1="650" x2="360" y2="650"/>
+  <line class="thin" x1="224" y1="680" x2="360" y2="680"/>
+  <line class="thin" x1="224" y1="710" x2="360" y2="710"/>
+  <line class="thin" x1="224" y1="740" x2="360" y2="740"/>
+
+  <!-- Arduino Nano R4 -->
+  <rect class="ic" x="520" y="360" width="300" height="520"/>
+  <text class="ref" x="548" y="392">U1</text>
+  <text class="label" x="548" y="415">Arduino Nano R4</text>
+
+  <text class="pin" x="545" y="465">5V</text><text class="net" x="690" y="465">+5V</text>
+  <text class="pin" x="545" y="495">GND</text><text class="net" x="690" y="495">GND</text>
+  <text class="pin" x="545" y="540">D2</text><text class="net" x="690" y="540">ENC_A</text>
+  <text class="pin" x="545" y="570">D3</text><text class="net" x="690" y="570">ENC_B</text>
+  <text class="pin" x="545" y="600">D4</text><text class="net" x="690" y="600">ENC_SW</text>
+  <text class="pin" x="545" y="645">A4</text><text class="net" x="690" y="645">SDA</text>
+  <text class="pin" x="545" y="675">A5</text><text class="net" x="690" y="675">SCL</text>
+  <text class="pin" x="545" y="720">D8</text><text class="net" x="690" y="720">OUT_A_IN</text>
+  <text class="pin" x="545" y="750">D9</text><text class="net" x="690" y="750">OUT_B_IN</text>
+  <text class="pin" x="545" y="780">D10</text><text class="net" x="690" y="780">OUT_D_IN</text>
+  <text class="pin" x="545" y="810">D11</text><text class="net" x="690" y="810">OUT_C_IN</text>
+  <text class="pin" x="545" y="840">D12</text><text class="net" x="690" y="840">OE_BUF</text>
+
+  <line class="thin" x1="675" y1="460" x2="810" y2="460"/>
+  <line class="thin" x1="675" y1="490" x2="810" y2="490"/>
+  <line class="thin" x1="675" y1="535" x2="810" y2="535"/>
+  <line class="thin" x1="675" y1="565" x2="810" y2="565"/>
+  <line class="thin" x1="675" y1="595" x2="810" y2="595"/>
+  <line class="thin" x1="675" y1="640" x2="810" y2="640"/>
+  <line class="thin" x1="675" y1="670" x2="810" y2="670"/>
+  <line class="thin" x1="675" y1="715" x2="1000" y2="715"/>
+  <line class="thin" x1="675" y1="745" x2="1000" y2="745"/>
+  <line class="thin" x1="675" y1="775" x2="1000" y2="775"/>
+  <line class="thin" x1="675" y1="805" x2="1000" y2="805"/>
+  <line class="thin" x1="675" y1="835" x2="990" y2="835"/>
+
+  <!-- Buffer IC and enable -->
+  <rect class="ic" x="970" y="420" width="315" height="430"/>
+  <text class="ref" x="995" y="452">U2</text>
+  <text class="label" x="995" y="475">SN74AHCT125N quad buffer</text>
+
+  <text class="pin" x="995" y="525">1,4,10,13 /OE</text><text class="net" x="1142" y="525">OE_BUF</text>
+  <text class="pin" x="995" y="570">2 1A</text><text class="net" x="1060" y="570">OUT_A_IN</text>
+  <text class="pin" x="1180" y="570">3 1Y</text><text class="net" x="1230" y="570">OUT_A_BUF</text>
+  <text class="pin" x="995" y="620">5 2A</text><text class="net" x="1060" y="620">OUT_B_IN</text>
+  <text class="pin" x="1180" y="620">6 2Y</text><text class="net" x="1230" y="620">OUT_B_BUF</text>
+  <text class="pin" x="995" y="670">9 3A</text><text class="net" x="1060" y="670">OUT_D_IN</text>
+  <text class="pin" x="1180" y="670">8 3Y</text><text class="net" x="1230" y="670">OUT_D_BUF</text>
+  <text class="pin" x="995" y="720">12 4A</text><text class="net" x="1060" y="720">OUT_C_IN</text>
+  <text class="pin" x="1180" y="720">11 4Y</text><text class="net" x="1230" y="720">OUT_C_BUF</text>
+  <text class="pin" x="995" y="780">14 VCC</text><text class="net" x="1060" y="780">+5V</text>
+  <text class="pin" x="995" y="815">7 GND</text><text class="net" x="1060" y="815">GND</text>
+
+  <line class="thin" x1="1285" y1="570" x2="1340" y2="570"/>
+  <line class="thin" x1="1285" y1="620" x2="1340" y2="620"/>
+  <line class="thin" x1="1285" y1="670" x2="1340" y2="670"/>
+  <line class="thin" x1="1285" y1="720" x2="1340" y2="720"/>
+
+  <text class="ref" x="905" y="235">R6</text>
+  <text class="small" x="895" y="255">10k pullup</text>
+  <line class="wire" x1="920" y1="175" x2="920" y2="205"/>
+  <text class="net" x="895" y="165">+5V</text>
+  <use href="#res_v" x="920" y="205"/>
+  <line class="wire" x1="920" y1="297" x2="920" y2="525"/>
+  <line class="wire" x1="920" y1="525" x2="970" y2="525"/>
+  <text class="net" x="878" y="415">OE_BUF</text>
+  <text class="note" x="875" y="900">U2 output enables are active low. D12 HIGH disables outputs during boot/menu; D12 LOW enables clock outputs.</text>
+
+  <text class="ref" x="900" y="760">C4</text>
+  <text class="small" x="890" y="780">100 nF near U2</text>
+  <line class="wire" x1="930" y1="785" x2="930" y2="805"/>
+  <use href="#cap" x="930" y="805"/>
+  <use href="#gnd" x="930" y="880"/>
+  <text class="net" x="900" y="775">+5V</text>
+
+  <!-- Output stages -->
+  <text class="ref" x="1360" y="475">Buffered outputs</text>
+
+  <line class="wire" x1="1340" y1="570" x2="1375" y2="570"/>
+  <use href="#res_h" x="1375" y="570"/>
+  <text class="ref" x="1395" y="548">R2</text>
+  <text class="small" x="1394" y="593">1k</text>
+  <line class="wire" x1="1469" y1="570" x2="1530" y2="570"/>
+  <circle class="jack" cx="1570" cy="570" r="32"/>
+  <line class="wire" x1="1530" y1="570" x2="1602" y2="570"/>
+  <text class="ref" x="1615" y="565">J1</text>
+  <text class="label" x="1615" y="585">OUT A</text>
+  <use href="#res_v" x="1530" y="590"/>
+  <text class="ref" x="1505" y="635">R7</text>
+  <text class="small" x="1503" y="670">100k</text>
+  <use href="#gnd" x="1530" y="690"/>
+  <line class="wire" x1="1570" y1="602" x2="1570" y2="640"/>
+  <use href="#gnd" x="1570" y="640"/>
+
+  <line class="wire" x1="1340" y1="620" x2="1375" y2="620"/>
+  <use href="#res_h" x="1375" y="620"/>
+  <text class="ref" x="1395" y="598">R3</text>
+  <text class="small" x="1394" y="643">1k</text>
+  <line class="wire" x1="1469" y1="620" x2="1530" y2="620"/>
+  <circle class="jack" cx="1570" cy="760" r="32"/>
+  <line class="wire" x1="1530" y1="620" x2="1530" y2="760"/>
+  <line class="wire" x1="1530" y1="760" x2="1602" y2="760"/>
+  <text class="ref" x="1615" y="755">J2</text>
+  <text class="label" x="1615" y="775">OUT B</text>
+  <use href="#res_v" x="1500" y="780"/>
+  <text class="ref" x="1474" y="825">R8</text>
+  <text class="small" x="1472" y="860">100k</text>
+  <use href="#gnd" x="1500" y="880"/>
+  <line class="wire" x1="1570" y1="792" x2="1570" y2="830"/>
+  <use href="#gnd" x="1570" y="830"/>
+
+  <line class="wire" x1="1340" y1="720" x2="1375" y2="720"/>
+  <use href="#res_h" x="1375" y="720"/>
+  <text class="ref" x="1395" y="698">R4</text>
+  <text class="small" x="1394" y="743">1k</text>
+  <line class="wire" x1="1469" y1="720" x2="1478" y2="720"/>
+  <circle class="jack" cx="1255" cy="950" r="32"/>
+  <line class="wire" x1="1478" y1="720" x2="1478" y2="950"/>
+  <line class="wire" x1="1223" y1="950" x2="1478" y2="950"/>
+  <text class="ref" x="1185" y="945">J3</text>
+  <text class="label" x="1130" y="965">OUT C</text>
+  <use href="#res_v" x="1335" y="960"/>
+  <text class="ref" x="1308" y="1005">R9</text>
+  <text class="small" x="1305" y="1040">100k</text>
+  <use href="#gnd" x="1335" y="1060"/>
+  <line class="wire" x1="1255" y1="982" x2="1255" y2="1015"/>
+  <use href="#gnd" x="1255" y="1015"/>
+
+  <line class="wire" x1="1340" y1="670" x2="1375" y2="670"/>
+  <use href="#res_h" x="1375" y="670"/>
+  <text class="ref" x="1395" y="648">R5</text>
+  <text class="small" x="1394" y="693">1k</text>
+  <line class="wire" x1="1469" y1="670" x2="1508" y2="670"/>
+  <circle class="jack" cx="1570" cy="950" r="32"/>
+  <line class="wire" x1="1508" y1="670" x2="1508" y2="950"/>
+  <line class="wire" x1="1508" y1="950" x2="1602" y2="950"/>
+  <text class="ref" x="1615" y="945">J4</text>
+  <text class="label" x="1615" y="965">OUT D</text>
+  <use href="#res_v" x="1538" y="960"/>
+  <text class="ref" x="1510" y="1005">R10</text>
+  <text class="small" x="1507" y="1040">100k</text>
+  <use href="#gnd" x="1538" y="1060"/>
+  <line class="wire" x1="1570" y1="982" x2="1570" y2="1015"/>
+  <use href="#gnd" x="1570" y="1015"/>
+
+  <text class="note" x="1130" y="1018">C/D note: physical C jack is driven from Nano D11/U2 pin 11; physical D jack is driven from Nano D10/U2 pin 8.</text>
+
+  <!-- Net label note and title block -->
+  <rect class="header" x="70" y="900" width="760" height="140"/>
+  <text class="ref" x="90" y="930">Schematic notes</text>
+  <text class="note" x="90" y="956">1. Same-name blue net labels are connected: +5V, GND, SDA, SCL, ENC_A, ENC_B, ENC_SW, OE_BUF, and output nets.</text>
+  <text class="note" x="90" y="982">2. R2-R5 are output protection/current-limit resistors. R7-R10 are jack-tip pulldowns.</text>
+  <text class="note" x="90" y="1008">3. Do not connect Eurorack +12V, -12V, CV bus, or gate bus for this build.</text>
+  <text class="note" x="90" y="1034">4. Avoid powering from Eurorack +5V and USB at the same time unless your build explicitly supports that.</text>
+
+  <rect class="border" x="1210" y="60" width="430" height="120"/>
+  <text class="ref" x="1230" y="90">Title</text>
+  <text class="label" x="1285" y="90">BPM Clock Nano R4</text>
+  <text class="ref" x="1230" y="120">Rev</text>
+  <text class="label" x="1285" y="120">Stable firmware package, 2026-07-04</text>
+  <text class="ref" x="1230" y="150">Sheet</text>
+  <text class="label" x="1285" y="150">1 of 1</text>
+</svg>
