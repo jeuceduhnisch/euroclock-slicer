@@ -112,4 +112,8 @@ Global variables use 8020 bytes (24%) of dynamic memory.
 
 ## License
 
-No open-source license has been selected yet. Add a license before publishing publicly if you want others to have explicit permission to copy, modify, or distribute the project.
+This project is released under the Unlicense. See [LICENSE](LICENSE).
+
+## Acknowledgments
+
+Documentation, cleanup, and release organization were assisted by OpenAI Codex.
