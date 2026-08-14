@@ -25,8 +25,6 @@ firmware/
 hardware/
   BPM_Clock_Nano_R4_schematic.svg
   BPM Clock Eurorack Module.pdf
-  eurorack_bpm_clock_wiring_diagram.svg
-  eurorack_bpm_clock_wiring_diagram.png
   examples/
     build-photos/
 docs/

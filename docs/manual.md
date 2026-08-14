@@ -7,8 +7,6 @@ GitHub package date: 2026-08-11
 - `firmware/BPMClockNanoR4/BPMClockNanoR4.ino` - stable Arduino Nano R4 firmware.
 - `hardware/BPM_Clock_Nano_R4_schematic.svg` - proper vector electrical schematic.
 - `hardware/BPM Clock Eurorack Module.pdf` - original board/reference PDF.
-- `hardware/eurorack_bpm_clock_wiring_diagram.png` - older wiring reference image.
-- `hardware/eurorack_bpm_clock_wiring_diagram.svg` - older editable wiring reference.
 - `hardware/examples/build-photos/` - completed module photos for physical layout reference.
 
 ## Hardware Summary
